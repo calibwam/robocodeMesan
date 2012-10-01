@@ -1,0 +1,6 @@
+-ikke krasj i veggen
+-hvis du blir truffet av en kule, og vi ikke tracker den som skjøt, track den som skjøt
+-let etter andre roboter. track den.
+-victoryDance. Bytte farger!
+
+MesanKey_12225
