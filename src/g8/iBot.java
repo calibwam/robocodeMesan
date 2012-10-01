@@ -1,10 +1,14 @@
-import robocode.Robot;
+package g8;
+
+import robocode.AdvancedRobot;
 import robocode.ScannedRobotEvent;
 
-public class iBot extends Robot {
+public class iBot extends AdvancedRobot {
 	public void run() {
 		while(true) {
-		// Her kommer logikk for robotens bevegelser
+			ahead(30);
+			turnRight(20);
+			// Her kommer logikk for robotens bevegelser
 		}
 	}
 	
