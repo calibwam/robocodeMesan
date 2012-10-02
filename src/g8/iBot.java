@@ -82,7 +82,14 @@ public class iBot extends AdvancedRobot {
 	public void onScannedRobot(ScannedRobotEvent event) {
 		// SKYT når man ser en fiende
 		stop();
-		fire(2);
+		double distance = event.getDistance(); 
+		if (distance < 100) {
+			fire(3);
+		} else if (distance < 200) {
+			fire(2);
+		} else {
+			fire(1);
+		}
 		resume();
 	}
 	
@@ -93,11 +100,16 @@ public class iBot extends AdvancedRobot {
 		}else{
 			ahead(30);
 		}
-		turnGunRight(event.getBearing());	//turn against the shooting opponent
+		
+		double degrees = (event.getBearing() + getHeading() - getGunHeading()) % 360;
+		if (degrees > 180) {
+			degrees -= 360;
+		}
+		
+		turnGunRight(degrees);	//turn against the shooting opponent
 		//select turnRight or turnLeft based on what's optimal
 		turnedGun = true;
-		fire(1);
-		
+		fire(event.getPower());
 	}
 	
 	public void onWin(WinEvent event) {
